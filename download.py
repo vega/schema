@@ -18,11 +18,10 @@ for lib in ['vega', 'vega-lite']:
             version = tag['ref'].replace('refs/tags/', '')
             url = 'https://raw.githubusercontent.com/vega/{lib}/{version}/{lib}-schema.json'.format(version=version, lib=lib)
             try:
-                schema = "{lib}/{version}.json".format(version=version, lib=lib)
-                urllib.request.urlretrieve(url, schema)
+                urllib.request.urlretrieve(url, "{lib}/{version}.json".format(version=version, lib=lib))
                 split = version.split('.')
-                force_symlink(schema, "{lib}/{version}.json".format(version=split[0], lib=lib))
-                force_symlink(schema, "{lib}/{version}.json".format(version=split[0]+'.'+split[1], lib=lib))
+                force_symlink("./{version}.json".format(version=version, lib=lib), "{lib}/{version}.json".format(version=split[0], lib=lib))
+                force_symlink("./{version}.json".format(version=version, lib=lib), "{lib}/{version}.json".format(version=split[0]+'.'+split[1], lib=lib))
             except urllib.error.HTTPError as e:
                 if e.code == 404:
                     pass
