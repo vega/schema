@@ -1,0 +1,18 @@
+{
+  "name": "vega-schema-parser",
+  "version": "1.0.0-beta.1",
+  "description": "A parser to get the library and version from schema URLs. ",
+  "main": "index.js",
+  "repository": "git@github.com:vega/schema.git",
+  "author": "Dominik Moritz <domoritz@gmail.com>",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "npm run build && tape tests.js"
+  },
+  "devDependencies": {
+    "@types/tape": "^4.2.28",
+    "tape": "^4.6.3",
+    "typescript": "^2.1.5"
+  }
+}
