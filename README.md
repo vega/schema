@@ -13,4 +13,4 @@ https://vega.github.io/schema/[library]/[version].json
 
 ## Script
 
-We are releasing an npm package `vega-schema-url-parser` with a method to correctly extract the library and version from the schema url. The code for this module is on the [`parser` branch](https://github.com/vega/schema/tree/parser).
+We are releasing an npm package [`vega-schema-url-parser`](https://www.npmjs.com/package/vega-schema-url-parser) with a method to correctly extract the library and version from the schema url. The code for this module is on the [`parser`](https://github.com/vega/schema/tree/parser) branch.
