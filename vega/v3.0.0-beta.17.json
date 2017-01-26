@@ -3,10 +3,33 @@
   "title": "Vega 3.0 Visualization Specification Language",
   "defs": {
     "autosize": {
-      "enum": [
-        "pad",
-        "fit",
-        "none"
+      "oneOf": [
+        {
+          "enum": [
+            "pad",
+            "fit",
+            "none"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": [
+                "pad",
+                "fit",
+                "none"
+              ]
+            },
+            "resize": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        }
       ],
       "default": "pad"
     },
@@ -2084,7 +2107,8 @@
                   "enum": [
                     "quantile",
                     "quantize",
-                    "threshold"
+                    "threshold",
+                    "bin-ordinal"
                   ]
                 },
                 "range": {
@@ -2163,7 +2187,6 @@
                   "type": {
                     "enum": [
                       "ordinal",
-                      "index",
                       "band",
                       "point",
                       "quantile",
@@ -2173,7 +2196,9 @@
                       "pow",
                       "time",
                       "utc",
-                      "identity"
+                      "identity",
+                      "bin-ordinal",
+                      "bin-linear"
                     ]
                   }
                 },
@@ -2247,28 +2272,7 @@
                   ]
                 },
                 "interpolate": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/refs/signal"
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "$ref": "#/refs/stringOrSignal"
-                        },
-                        "gamma": {
-                          "$ref": "#/refs/numberOrSignal"
-                        }
-                      },
-                      "required": [
-                        "type"
-                      ]
-                    }
-                  ]
+                  "$ref": "#/refs/scaleInterpolate"
                 },
                 "clamp": {
                   "$ref": "#/refs/booleanOrSignal"
@@ -2383,6 +2387,85 @@
                 },
                 "zero": {
                   "$ref": "#/refs/booleanOrSignal"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            {
+              "properties": {
+                "type": {
+                  "enum": [
+                    "bin-linear"
+                  ]
+                },
+                "range": {
+                  "oneOf": [
+                    {
+                      "enum": [
+                        "width",
+                        "height",
+                        "symbol",
+                        "category",
+                        "ordinal",
+                        "ramp",
+                        "diverging",
+                        "heatmap"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "$ref": "#/refs/signal"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "$ref": "#/refs/signal"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "scheme": {
+                          "$ref": "#/refs/stringOrSignal"
+                        },
+                        "count": {
+                          "$ref": "#/refs/numberOrSignal"
+                        },
+                        "extent": {
+                          "oneOf": [
+                            {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/refs/numberOrSignal"
+                              },
+                              "numItems": 2
+                            },
+                            {
+                              "$ref": "#/refs/signal"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "scheme"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "interpolate": {
+                  "$ref": "#/refs/scaleInterpolate"
                 }
               },
               "required": [
@@ -7334,6 +7417,30 @@
     },
     "scaleField": {
       "$ref": "#/refs/stringOrSignal"
+    },
+    "scaleInterpolate": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/refs/signal"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref": "#/refs/stringOrSignal"
+            },
+            "gamma": {
+              "$ref": "#/refs/numberOrSignal"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
     },
     "scaleData": {
       "oneOf": [
