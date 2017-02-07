@@ -16,3 +16,11 @@ test('parses vega-lite url correctly', function (t) {
     t.equal(parsed.library, 'vega-lite');
     t.equal(parsed.version, 'v1.3.1');
 });
+
+test('parses url with alpha correctly', function (t) {
+    t.plan(2);
+
+    const parsed = parser('https://vega.github.io/schema/vega-lite/v2.0.0-alpha.0.json');
+    t.equal(parsed.library, 'vega-lite');
+    t.equal(parsed.version, 'v2.0.0-alpha.0');
+});
