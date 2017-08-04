@@ -1,6 +1,6 @@
 # [Schema](https://github.com/vega/schema)
 
-JSON schema for Vega and Vega-Lite. 
+JSON schema for [Vega](https://vega.github.io/schema/vega/v3.json) and [Vega-Lite](https://vega.github.io/schema/vega-lite/v2.json).
 
 ## Url format
 
