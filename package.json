@@ -12,6 +12,7 @@
     "schema"
   ],
   "scripts": {
+    "prepublish": "npm run build",
     "build": "tsc -p .",
     "test": "npm run build && tape tests.js"
   },
