@@ -1,6 +1,6 @@
 {
   "name": "vega-schema-url-parser",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0",
   "description": "A parser to get the library and version from Vega and Vega-Lite schema URLs.",
   "main": "index.js",
   "repository": "git@github.com:vega/schema.git",
@@ -17,8 +17,8 @@
     "test": "npm run build && tape tests.js"
   },
   "devDependencies": {
-    "@types/tape": "^4.2.28",
-    "tape": "^4.6.3",
-    "typescript": "^2.1.5"
+    "@types/tape": "^4.2.31",
+    "tape": "^4.8.0",
+    "typescript": "^2.6.2"
   }
 }
