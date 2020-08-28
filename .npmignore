@@ -1,4 +1,5 @@
 vega
 vega-lite
 README.md
-tests.*
+test.*
+babel.*
