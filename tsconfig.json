@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
+    "module": "es2015",
     "declaration": true,
     "strict": true,
-    "sourceMap": true
+    "inlineSourceMap": true
   },
   "include": [
     "index.ts"
