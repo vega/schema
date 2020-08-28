@@ -1,4 +1,4 @@
-import parser from '.';
+import parser from './parser';
 
 test('parses vega url correctly', function () {
     const parsed = parser('https://vega.github.io/schema/vega/v2.5.2.json');
