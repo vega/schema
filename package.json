@@ -2,7 +2,12 @@
   "name": "vega-schema-url-parser",
   "version": "2.0.0",
   "description": "A parser to get the library and version from Vega and Vega-Lite schema URLs.",
-  "main": "index.js",
+  "source": "parser.ts",
+  "main": "dist/parser.js",
+  "module": "dist/parser.module.js",
+  "esmodule": "dist/parser.modern.js",
+  "unpkg": "dist/parser.umd.js",
+  "types": "dist/parser.d.ts",
   "repository": "git@github.com:vega/schema.git",
   "author": "Dominik Moritz <domoritz@gmail.com>",
   "license": "BSD-3-Clause",
@@ -13,12 +18,18 @@
   ],
   "scripts": {
     "prepublish": "yarn build",
-    "build": "tsc -p .",
-    "test": "yarn build && tape tests.js"
+    "build": "microbundle",
+    "watch": "microbundle watch",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.10",
     "@types/tape": "^4.13.0",
-    "tape": "^5.0.1",
-    "typescript": "^4.0.2"
+    "babel-jest": "^26.3.0",
+    "jest": "^26.4.2",
+    "microbundle": "^0.12.3"
   }
 }

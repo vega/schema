@@ -6,7 +6,7 @@
     "strict": true,
     "inlineSourceMap": true
   },
-  "include": [
-    "index.ts"
+  "files": [
+    "parser.ts"
   ]
 }
