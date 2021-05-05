@@ -17,3 +17,9 @@ test('parses url with alpha correctly', function () {
     expect(parsed.library).toBe('vega-lite');
     expect(parsed.version).toBe('v2.0.0-alpha.0');
 });
+
+test('parses proxied url correctly', function () {
+   const parsed = parser('https://www.proxy.net/,ProxInfo=.abc123FgHi789,SSL+schema/vega/v2.5.2.json');
+   expect(parsed.library).toBe('vega');
+   expect(parsed.version).toBe('v2.5.2');
+});
