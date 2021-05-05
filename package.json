@@ -1,6 +1,6 @@
 {
   "name": "vega-schema-url-parser",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A parser to get the library and version from Vega and Vega-Lite schema URLs.",
   "source": "parser.ts",
   "main": "dist/parser.js",
