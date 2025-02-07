@@ -1,11 +1,15 @@
 {
   "name": "vega-schema-url-parser",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "A parser to get the library and version from Vega and Vega-Lite schema URLs.",
+  "type": "module",
   "source": "parser.ts",
-  "main": "dist/parser.js",
-  "module": "dist/parser.module.js",
-  "esmodule": "dist/parser.modern.js",
+  "exports": {
+    "require": "./dist/parser.cjs",
+    "default": "./dist/parser.modern.js"
+  },
+  "main": "./dist/parser.cjs",
+  "module": "./dist/parser.module.js",
   "unpkg": "dist/parser.umd.js",
   "types": "dist/parser.d.ts",
   "repository": "git@github.com:vega/schema.git",
@@ -17,19 +21,13 @@
     "schema"
   ],
   "scripts": {
-    "prepublish": "yarn build",
+    "prepublish": "npm run build",
     "build": "microbundle",
     "watch": "microbundle watch",
-    "test": "jest"
+    "test": "vitest run"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.1",
-    "@babel/preset-typescript": "^7.13.0",
-    "@types/jest": "^26.0.23",
-    "@types/tape": "^4.13.0",
-    "babel-jest": "^26.6.3",
-    "jest": "^26.6.3",
-    "microbundle": "^0.13.0"
+    "vitest": "^3.0.4",
+    "microbundle": "^0.15.1"
   }
 }

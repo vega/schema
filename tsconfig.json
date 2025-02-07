@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es2015",
+    "target": "ES2022",
+    "module": "Node16",
     "declaration": true,
     "strict": true,
     "inlineSourceMap": true
