@@ -1,12 +1,13 @@
 {
   "name": "vega-schema-url-parser",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A parser to get the library and version from Vega and Vega-Lite schema URLs.",
   "type": "module",
   "source": "parser.ts",
   "exports": {
     "require": "./dist/parser.cjs",
-    "default": "./dist/parser.modern.js"
+    "default": "./dist/parser.modern.js",
+    "types": "./dist/parser.d.ts"
   },
   "main": "./dist/parser.cjs",
   "module": "./dist/parser.module.js",
