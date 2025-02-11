@@ -5,9 +5,9 @@
   "type": "module",
   "source": "parser.ts",
   "exports": {
+    "types": "./dist/parser.d.ts",
     "require": "./dist/parser.cjs",
-    "default": "./dist/parser.modern.js",
-    "types": "./dist/parser.d.ts"
+    "default": "./dist/parser.modern.js"
   },
   "main": "./dist/parser.cjs",
   "module": "./dist/parser.module.js",
